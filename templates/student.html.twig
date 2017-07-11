@@ -1,0 +1,50 @@
+{% extends '_base.html.twig' %}
+
+{# ------------------------------------------------- #}
+{% block pageTitle %}Screen{% endblock %}
+
+{# ------------------------------------------------- #}
+{% block main %}
+
+<div id="aside_student">
+<caption><h1>Jobs...</h1></caption>
+    <table>
+        <tr>
+            <th> Jobs </th>
+            <th> &nbsp; </th>
+            <th> <a href="/?placement" title="New Placement" class="btn btn-new">New</a> </th>
+        </tr>
+        {% for item in placement_list %}
+            <tr>
+                <td><img src="{{ item.placement }}" title="{{ item.name }}" width="120" /></td>
+                <td><a href="/?cv/update/{{ item.id }}" title="Update" class="btn btn-update">Apply</a></td>
+                <td><a href="/?cv/delete/{{ item.id }}" title="Delete" class="btn btn-delete">Delete</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<div id="section_student">
+
+    <h1>CVs...</h1>
+
+    <table>
+        <tr>
+            <th> CVs </th>
+            <th> &nbsp; </th>
+            <th> <a href="/?cv/create" title="New CV" class="btn btn-new">New</a> </th>
+        </tr>
+        {% for item in cv_list %}
+            <tr>
+                <td><img src="{{ item.screen }}" title="{{ item.name }}" width="120" /></td>
+                <td><a href="/?cv/update/{{ item.id }}" title="Update" class="btn btn-update">Update</a></td>
+                <td><a href="/?cv/delete/{{ item.id }}" title="Delete" class="btn btn-delete">Delete</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+
+</div>
+
+
+
+{% endblock %}

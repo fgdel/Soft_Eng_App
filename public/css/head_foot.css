@@ -1,0 +1,32 @@
+/* ------- header & footer ------- */
+
+#header {
+	background-color:#FF851A;
+	color:#1A5F7C;
+	font-family: "Courier New", "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	text-align:left;
+	padding: 20px 5px 2px 50px;
+	margin-top: 16px;
+	margin-bottom: 20px;
+	min-height: 40px;
+	min-width: 550px;
+	display: block;
+}
+
+
+#footer {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	background-color:#1A5F7C;
+	clear: both;
+	text-align: center;
+	padding: 12px;
+	border-radius: 8px;
+	margin: 0 0 30px 0;
+
+}
+
+#footer .footerbutton {
+	text-decoration: none;
+	color: #C9DBFF;
+}

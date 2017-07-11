@@ -1,0 +1,8 @@
+{
+  "db": {
+    "user": "root",
+    "password": "vagrant",
+    "name": "itb_cdm"
+  }
+}
+

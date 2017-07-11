@@ -1,0 +1,36 @@
+{% extends 'admin/_adminBase.html.twig' %}
+
+{% if not placement.getId %}
+    {% set form_title = 'Add Placement' %}
+    {% set form_action = 'create' %}
+{% else %}
+    {% set form_title = 'Update Placement' %}
+    {% set form_action = 'update' %}
+{% set myRole = user.getRole %}
+{% endif %}
+
+{# ------------------------------------------------- #}
+{% block pageTitle %}{{ form_title }}{% endblock %}
+
+{# ------------------------------------------------- #}
+{% block main %}
+
+    <div class="container">
+        <div class="form">
+            <h1>{{ form_title }}</h1>
+            <form method="post" action="?admin/placement/{{ form_action }}">
+                <input type="hidden" name="id" value="{{ placement.getId }}" />
+
+                <p><input type="text" name="name" id="name" size="30" maxlength="24" value="{{ placement.getName }}" placeholder="Give me a name..." required /></p>
+                <p><input type="text" name="role" id="role" size="30" maxlength="24" value="{{ placement.getRole }}" placeholder="Role" required /></p>
+                <p><input type="text" name="company" id="company" size="30" maxlength="48" value="{{ placement.getCompany }}" placeholder="Company" required /></p>
+                <p><input type="text" name="deadline" id="deadline" size="30" maxlength="12" value="{{ placement.getDeadline }}" placeholder="Deadline (yyyy-mm-dd)" required /></p>
+                <p><input type="text" name="url" id="company_url" size="30" maxlength="255" value="{{ placement.getCompany_url }}" placeholder="Website" required /></p>
+                <p><textarea name="description" id="description" cols="38" rows="5" placeholder="Description" required >{{ placement.getDescription }}</textarea></p>
+
+                <p><input type="submit" value="Submit"></p>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

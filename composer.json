@@ -1,0 +1,28 @@
+{
+  "autoload": {
+    "psr-4": {
+      "Phizzle\\": "src/",
+      "Phizzle\\Exception\\": "src/exceptions"
+    }
+  },
+  "require": {
+    "symphony/http-foundation": "^3.1",
+    "mattsmithdev/pdo-crud-for-free": "dev-master",
+    "twig/twig": "^1.24"
+  },
+  "require-dev": {
+    "fzaninotto/faker": "^1.6",
+    "phpunit/phpunit": "^5.3",
+    "phpdocumentor/phpdocumentor": "^2.8",
+    "php-console/php-console": "^3.1",
+    "monolog/monolog": "^1.19",
+    "fabiencrassat/curriculumvitae": "dev-master",
+    "silex/silex": "^2.0"
+  },
+  "scripts":{
+    "test": "php phpunit.phar --log-tap ./Test/log.txt",
+    "coverage":"php phpunit.phar --log-tap ./Test/log.txt --coverage-html ./Test/coverage",
+    "phpdoc": "php phpDocumentor.phar -d ./src -t ./docs/documentation -- template=responsive-twig"
+  }
+}
+

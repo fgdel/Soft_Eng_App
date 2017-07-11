@@ -1,0 +1,81 @@
+{% extends 'dashboard/_dashboard.html.twig' %}
+
+{# ------------------------------------------------- #}
+{% block pageTitle %}Profile{% endblock %}
+
+{# ------------------------------------------------- #}
+{% block main %}
+    <div class="container">
+         <div id="section">
+
+        <p>
+        <h1><strong> Creative Digital Media <br>Placement Management System</strong><br><br></h1>
+
+            <div class="form">
+                <h1>Profile</h1>
+
+            <table>
+                <tr>
+                    <th> Username </th>
+                    <th> Firstname </th>
+                    <th> Lastname </th>
+                    <th> Email </th>
+                    <th> Website </th>
+                    <th> Description </th>
+                    <th> Placement </th>
+                    <th> &nbsp; </th>
+                </tr>
+                {% for item in user_list %}
+                    <tr>
+                        <td>{{ item.username }}</td>
+                        <td>{{ item.firstname }}</td>
+                        <td>{{ item.lastname }}</td>
+                        <td>{{ item.email }}</td>
+                        <td>{{ item.website }}</td>
+                        <td>{{ item.description }} </td>
+                        <th>{{ item.placement }} </th>
+                        <td><a href="/?admin/user/update/{{ item.id }}" title="Update" class="btn btn-update">Update</a></td>
+                        <td><a href="/?admin/user/delete/{{ item.id }}" title="Delete" class="btn btn-delete">Delete</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+
+
+        </div>
+
+            <div class="form">
+                <h1>Placements</h1>
+
+                <table>
+                    <tr>
+                        <th> Name </th>
+                        <th> Role </th>
+                        <th> Company </th>
+                        <th> Website </th>
+                        <th> Deadline </th>
+                        <th> Description </th>
+                        <th> &nbsp; </th>
+                        <th> <a href="/?admin/placement/create" title="New Placement" class="btn btn-new">New</a> </th>
+                    </tr>
+                    {% for item in placement_list %}
+                        <tr>
+                            <td>{{ item.name }}</td>
+                            <td>{{ item.role }}</td>
+                            <td>{{ item.company }}</td>
+                            <td>{{ item.company_url }}</td>
+                            <td>{{ item.deadline }}</td>
+                            <td>{{ item.description }}</td>
+                            <td><a href="/?admin/placement/update/{{ item.id }}" title="Update" class="btn btn-update">Update</a></td>
+                            <td><a href="/?admin/placement/delete/{{ item.id }}" title="Delete" class="btn btn-delete">Delete</a></td>
+                        </tr>
+                    {% endfor %}
+                </table>
+
+
+            </div>
+             </p>
+
+         </div>
+    </div>
+
+{% endblock %}

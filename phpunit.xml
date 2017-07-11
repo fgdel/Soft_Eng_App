@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit colors="true" bootstrap="./vendor/autoload.php">
+    <testsuites>
+        <testsuite name="ITB_CDM Test Suite">
+            <directory>./Test/</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./src/</directory>
+        </whitelist>
+    </filter>
+    <logging>
+        <log type="coverage-html" target="./coverage" lowUpperBound="35" highLowerBound="70"/>
+    </logging>
+    <php>
+        <const name="TEST_ENV" value="true"/>
+        <const name="DB_HOST" value="localhost"/>
+        <const name="DB_USER" value="root"/>
+        <const name="DB_PASS" value="vagrant"/>
+        <const name="DB_NAME" value="itb_cdm"/>
+    </php>
+</phpunit>

@@ -1,0 +1,32 @@
+{% extends '_base.html.twig' %}
+
+{# ------------------------------------------------- #}
+{% block pageTitle %}Register{% endblock %}
+
+{# ------------------------------------------------- #}
+{% block main %}
+
+    <div class="container">
+        <div class="register">
+            <h1>Register</h1>
+            <form method="post" action="{{ action_url('register') }}">
+
+        <p><input type="text" name="firstname" id="firstname" size="30" maxlength="45" value="" placeholder="First Name" required /></p>
+
+        <p><input type="text" name="lastname" id="lastname" size="30" maxlength="45" value="" placeholder="Last Name" required /></p>
+
+        <p><input type="email" name="email" id="email" size="30" maxlength="100" value="" placeholder="your@email.address" required /></p>
+
+        <p><input type="text" name="username" id="username" size="30" maxlength="45" value="" placeholder="Username" required /></p>
+
+        <p><input type="password" name="password" id="password" size="30" maxlength="45" value="" placeholder="Password" required /></p>
+
+        <p><input type="password" name="confirm" id="confirm" size="30" maxlength="45" value="" placeholder="Confirm Password" required /></p>
+
+        <p><input type="submit" value="Register"></p>
+
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

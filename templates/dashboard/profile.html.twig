@@ -1,0 +1,51 @@
+{% extends 'dashboard/_dashboard.html.twig' %}
+{# ------------------------------------------------- #}
+{% block pageTitle %}Dashboard{% endblock %}
+
+{# ------------------------------------------------- #}
+{% block main %}
+
+    <div id="home-page">
+        <div id="section">
+
+            <p>
+            <h1><strong> Dashboard <br></strong><br><br></h1>
+
+            <div class="form">
+                <h1>Profile</h1>
+
+                <table>
+                    <tr>
+
+                        <th> Website </th>
+                        <th> Description </th>
+                        <th> Username </th>
+                        <th> Firstname </th>
+                        <th> Lastname </th>
+                        <th> Email </th>
+                        <th> Status </th>
+
+                        <th> &nbsp; </th>
+                    </tr>
+                    {% for item in profile_list %}
+                        <tr>
+                            <td>{{ item.website }}</td>
+                            <td>{{ item.description }}</td>
+                            <td>{{ item.firstname }}</td>
+                            <td>{{ item.lastname }}</td>
+                            <td>{{ item.email }}</td>
+                            <td>{{ item.status }} </td>
+                            <td><a href="/?admin/user/update/{{ item.id }}" title="Update" class="btn btn-update">Update</a></td>
+                            <td><a href="/?admin/user/delete/{{ item.id }}" title="Delete" class="btn btn-delete">Delete</a></td>
+                        </tr>
+                    {% endfor %}
+                </table>
+
+
+            </div>
+            </p>
+
+        </div>
+    </div>
+
+{% endblock lock %}

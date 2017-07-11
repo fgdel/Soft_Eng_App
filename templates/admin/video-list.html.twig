@@ -1,0 +1,31 @@
+{% extends 'admin/_adminBase.html.twig' %}
+
+{# ------------------------------------------------- #}
+{% block pageTitle %}Videos{% endblock %}
+
+{# ------------------------------------------------- #}
+{% block main %}
+
+    <div class="container">
+        <div class="form">
+            <h1>Videos</h1>
+
+            <table>
+                <tr>
+                    <th> Video </th>
+                    <th> &nbsp; </th>
+                    <th> <a href="/?admin/video/create" title="New Developer" class="btn btn-new">New</a> </th>
+                </tr>
+                {% for item in video_list %}
+                    <tr>
+                        <td><img src="{{ item.screen }}" title="{{ item.name }}" width="120" /></td>
+                        <td><a href="/?admin/video/update/{{ item.id }}" title="Update" class="btn btn-update">Update</a></td>
+                        <td><a href="/?admin/video/delete/{{ item.id }}" title="Delete" class="btn btn-delete">Delete</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+
+        </div>
+    </div>
+
+{% endblock %}

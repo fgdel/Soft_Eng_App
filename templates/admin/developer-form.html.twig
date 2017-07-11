@@ -1,0 +1,35 @@
+{% extends 'admin/_adminBase.html.twig' %}
+
+{% if not developer.id %}
+    {% set form_title = 'Create Developer' %}
+    {% set form_action = 'create' %}
+{% else %}
+    {% set form_title = 'Update Developer' %}
+    {% set form_action = 'update' %}
+{% endif %}
+
+{# ------------------------------------------------- #}
+{% block pageTitle %}{{ form_title }}{% endblock %}
+
+{# ------------------------------------------------- #}
+{% block main %}
+
+    <div class="container">
+        <div class="form">
+            <h1>{{ form_title }}</h1>
+            <form method="post" action="?admin/developer/{{ form_action }}">
+                <input type="hidden" name="id" value="{{ developer.id }}" />
+
+        <p><input type="text" name="name" id="name" size="30" maxlength="45" value="{{ developer.name }}" placeholder="Developer's Name" required /></p>
+
+        <p><input type="text" name="url" id="url" size="30" maxlength="255" value="{{ developer.url }}" placeholder="Website URL" required /></p>
+
+        <p><textarea name="description" id="description" cols="30" rows="5" placeholder="Description" required >{{ developer.description }}</textarea></p>
+
+        <p><input type="submit" value="Save"></p>
+
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

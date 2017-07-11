@@ -1,0 +1,41 @@
+{% extends 'admin/_adminBase.html.twig' %}
+
+{# ------------------------------------------------- #}
+{% block pageTitle %}Users{% endblock %}
+
+{# ------------------------------------------------- #}
+{% block main %}
+
+    <div class="container">
+        <div class="form">
+            <h1>Users</h1>
+
+            <table>
+                <tr>
+                    <th> Username </th>
+                    <th> Role </th>
+                    <th> Firstname </th>
+                    <th> Lastname </th>
+                    <th> Email </th>
+                    <th> In Work </th>
+                    <th> &nbsp; </th>
+                    <th> <a href="/?admin/user/create" title="New User" class="btn btn-new">New</a> </th>
+                </tr>
+                {% for item in user_list %}
+                    <tr>
+                        <td>{{ item.username }}</td>
+                        <td>{{ item.role }}</td>
+                        <td>{{ item.firstname }}</td>
+                        <td>{{ item.lastname }}</td>
+                        <td>{{ item.email }}</td>
+                        <td> maybe? </td>
+                        <td><a href="/?admin/user/update/{{ item.id }}" title="Update" class="btn btn-update">Update</a></td>
+                        <td><a href="/?admin/user/delete/{{ item.id }}" title="Delete" class="btn btn-delete">Delete</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+
+        </div>
+    </div>
+
+{% endblock %}

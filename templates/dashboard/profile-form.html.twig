@@ -1,0 +1,39 @@
+{% extends 'dashboard_dashboard.html.twig' %}
+
+{% if not profile.getId %}
+    {% set form_title = 'Add Profile' %}
+    {% set form_action = 'create' %}
+{% else %}
+    {% set form_title = 'Update Profilet' %}
+    {% set form_action = 'update' %}
+{% set myRole = user.getRole %}
+{% endif %}
+
+{# ------------------------------------------------- #}
+{% block pageTitle %}{{ form_title }}{% endblock %}
+
+{# ------------------------------------------------- #}
+{% block main %}
+
+    <div class="container">
+        <div class="form">
+            <h1>{{ form_title }}</h1>
+                <form method="post" action="?dashboard/profile{{ form_action }}">
+                    <input type="hidden" value="{{ user.getId }}" name="id" />
+
+                    <p><input type="url" name="website" id="website" size="30" maxlength="45" value="" placeholder="Website"/></p>
+                    <p><textarea name="description" id="description" cols="38" rows="5" placeholder="Description" required >{{ placement.getDescription }}</textarea></p>
+                    <p><input type="text" name="username" id="username" size="30" maxlength="45" value="{{ user.getUsername }}" placeholder="Username" required /></p>
+                    <p><input type="text" name="firstname" id="firstname" size="30" maxlength="45" value="{{ user.getFirstname }}" placeholder="First Name" required /></p>
+                    <p><input type="text" name="lastname" id="lastname" size="30" maxlength="45" value="{{ user.getLastname }}" placeholder="Last Name" required /></p>
+                    <p><input type="email" name="email" id="email" size="30" maxlength="100" value="{{ user.getEmail }}" placeholder="your@email.address" required /></p>
+                    <p><input type="text" name="status" id="status" size="30" maxlength="45" value="" placeholder="Status"/></p>
+
+                    <p><input type="submit" value="Edit"></p>
+                </form>
+
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

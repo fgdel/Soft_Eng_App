@@ -1,0 +1,37 @@
+{% extends 'admin/_adminBase.html.twig' %}
+
+{% if not video.id %}
+    {% set form_title = 'Add Video' %}
+    {% set form_action = 'create' %}
+{% else %}
+    {% set form_title = 'Update Video' %}
+    {% set form_action = 'update' %}
+{% endif %}
+
+{# ------------------------------------------------- #}
+{% block pageTitle %}{{ form_title }}{% endblock %}
+
+{# ------------------------------------------------- #}
+{% block main %}
+
+    <div class="container">
+        <div class="form">
+            <h1>{{ form_title }}</h1>
+            <form method="post" action="?admin/video/{{ form_action }}">
+                <input type="hidden" name="id" value="{{ video.id }}" />
+
+        <p><input type="text" name="title" id="title" size="30" maxlength="45" value="{{ video.title }}" placeholder="Video Title" required /></p>
+
+                <p><input type="text" name="screen" id="screen" size="30" maxlength="255" value="{{ video.screen }}" placeholder="Screen Capture" required /></p>
+
+                <p><input type="text" name="url" id="url" size="30" maxlength="255" value="{{ video.url }}" placeholder="Video URL" required /></p>
+
+        <p><textarea name="description" id="description" cols="30" rows="5" placeholder="Description" required >{{ video.description }}</textarea></p>
+
+        <p><input type="submit" value="Save"></p>
+
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

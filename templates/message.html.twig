@@ -1,0 +1,17 @@
+{% extends '_base.html.twig' %}
+
+{# ------------------------------------------------- #}
+{% block pageTitle %}Ooops{% endblock %}
+
+{# ------------------------------------------------- #}
+{% block main %}
+
+    <div class="container">
+        <div class="login">
+            <h1>Something went wrong</h1>
+            <p>Bad username or password, please try again...</p>
+            <p class="buttons"><span class="btn"><a href="{{ action_url('login') }}">Login</a></span></p>
+        </div>
+    </div>
+
+{% endblock %}

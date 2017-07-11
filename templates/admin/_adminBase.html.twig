@@ -1,0 +1,47 @@
+{% set navigation_bar = [['index', 'Home'], ['admin/user', 'Users'], ['admin/placement', 'Placements']] %}
+{% set active_page = active_page|default('admin') %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <title> {% block pageTitle %}{% endblock %}</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="/css/body.css" />
+    <link rel="stylesheet" type="text/css" href="/css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="/css/head_foot.css" />
+
+</head>
+<body>
+
+<header id="header">
+    <h1>ITB CDM | {{ page_title }}</h1>
+    {% if username %}
+    {%     include 'partials/logout.html.twig' %}
+    {% endif %}
+</header>
+
+<div align="center" id="nav">
+    <nav>
+        {% block navigation %}
+        <ul>
+            {% for item in navigation_bar %}
+            <li{% if item[0] == active_page %} class="active"{% endif %}>
+                <a href="{{ action_url(item[0]) }}">{{ item[1] }}</a></li>
+            {% endfor %}
+        </ul>
+        {% endblock %}
+    </nav>
+</div>
+
+{% block main %}
+{% endblock %}
+
+<footer>
+    <div id="footer">
+        <p>
+            2016 &copy;	Fiona Delaney
+        </p>
+    </div>
+</footer>
+</body>
+</html>

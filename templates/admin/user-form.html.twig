@@ -1,0 +1,44 @@
+{% extends 'admin/_adminBase.html.twig' %}
+
+{% if not user.getId %}
+    {% set form_title = 'Add User' %}
+    {% set form_action = 'create' %}
+{% else %}
+    {% set form_title = 'Update User' %}
+    {% set form_action = 'update' %}
+{% endif %}
+{% set myRole = user.getRole %}
+
+{# ------------------------------------------------- #}
+{% block pageTitle %}User Admin{% endblock %}
+
+{# ------------------------------------------------- #}
+{% block main %}
+
+    <div class="container">
+        <div class="form">
+            <h1>{{ form_title }}</h1>
+            <form method="post" action="?admin/user/{{ form_action }}">
+                <input type="hidden" value="{{ user.getId }}" name="id" />
+
+                <p><input type="text" name="firstname" id="firstname" size="30" maxlength="45" value="{{ user.getFirstname }}" placeholder="First Name" required /></p>
+                <p><input type="text" name="lastname" id="lastname" size="30" maxlength="45" value="{{ user.getLastname }}" placeholder="Last Name" required /></p>
+                <p><input type="email" name="email" id="email" size="30" maxlength="100" value="{{ user.getEmail }}" placeholder="your@email.address" required /></p>
+                <p><input type="text" name="username" id="username" size="30" maxlength="45" value="{{ user.getUsername }}" placeholder="Username" required /></p>
+                <p><input type="password" name="password" id="password" size="30" maxlength="45" value="" placeholder="Password"{% if not user.id %} required{% endif %}/></p>
+
+                <p>
+                    <select name="role" id="role" required>
+                        <option value="">Select Role</option>
+                        <option value="1"{% if 1 == myRole %} selected{% endif %}>Student</option>
+                        <option value="2"{% if 2 == myRole %} selected{% endif %}>Admin</option>
+                        <option value="3"{% if 3 == myRole %} selected{% endif %}>Employer</option>
+                    </select>
+                </p>
+
+                <p><input type="submit" value="Submit"></p>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

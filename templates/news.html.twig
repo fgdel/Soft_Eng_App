@@ -1,0 +1,38 @@
+{% extends '_base.html.twig' %}
+
+{# ------------------------------------------------- #}
+{% block pageTitle %}News{% endblock %}
+
+{# ------------------------------------------------- #}
+{% block main %}
+    <div id="aside">
+    </div>
+
+    <div id="news-section">
+        <h1>What's in the News?</h1>
+        <p></p>
+        <table>
+            {% set columns = 3 %}
+            {% for item in feed %}
+                {% if loop.first or loop.index0 is divisibleby(columns) %}
+                    <tr>
+                {% endif %}
+                <td style="width:300px;">
+                    <a href="{{ item.link }}" target="_blank"><img src="{{ item.image }}" width="120" height="120" alt="{{ item.title }}" />
+                        <h2>{{ item.title }}</h2>
+                        <h3>Gamasutra.com, {{ item.date }}</h3>
+                        <p>{{ item.text|raw }}</p></a>
+                </td>
+                {% if loop.last and loop.index is not divisibleby(columns) %}
+                    {% for n in range(low=columns - (loop.index % columns), high=1, step=-1) %}
+                        <td>&nbsp;</td>
+                    {% endfor %}
+                {% endif %}
+                {% if loop.last or loop.index is divisibleby(columns) %}
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </table>
+    </div>
+
+{% endblock %}

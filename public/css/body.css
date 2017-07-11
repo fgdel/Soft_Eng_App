@@ -1,0 +1,150 @@
+/* ------- body ------- */
+
+#section {
+	font-family: courier, "Courier New";
+	font-size: 1.2em;
+	color: #1A5F7C;
+	float: bottom;
+	padding: 40px 20px 0px 40px;
+	margin: 40px;
+	background-color:#C9DBFF;
+
+}
+
+
+
+/* ------- table contents --------- */
+table, th, td, tr {
+    border: solid black 0.1rem;
+	font-size: .9em;
+	font-family: sans-serif;
+}
+
+td {
+    text-align: center;
+    padding: 2px;
+    margin: 2px;
+}
+
+
+/* login screen */
+
+.container {
+	margin: 20px auto;
+	width: 840px;
+	position: relative;
+}
+.login, .register {
+	margin: 0 auto;
+	padding: 20px;
+	position: relative;
+	width: 310px;
+}
+.login:before,
+.register:before {
+	background: rgba(0, 0, 0, 0.08);
+	border-radius: 4px;
+	bottom: -8px;
+	content: '';
+	left: -8px;
+	position: absolute;
+	top: -8px;
+	right: -8px;
+	z-index: -1;
+}
+.login div.buttons {
+	margin: 20px auto;
+	text-align: center;
+	width: 250px;
+}
+.login-help {
+	color: white;
+	font-size: 11px;
+	margin: 20px 0;
+	text-align: center;
+	text-shadow: 0 1px #2a85a1;
+}
+.login-help a {
+	color: #cce7fa;
+	text-decoration: none;
+}
+.login-help a:hover {
+	text-decoration: underline;
+}
+:-moz-placeholder,
+::-webkit-input-placeholder {
+	color: #c9c9c9 !important;
+	font-size: 15px;
+}
+.login h1,
+.register h1 {
+	background-color: #FF851A;
+	border-radius: 8px;
+	color: #1A5F7C;
+	font-family: courier, "Courier New";
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 40px;
+	text-align: center;
+}
+.login p,
+.register p {
+	margin: 20px 0 0;
+	text-align: center;
+}
+.login p:first-child {
+	margin-top: 0;
+}
+.login input[type=password], .login input[type=text],
+.register input[type=email], .register input[type=password], .register input[type=text] {
+	font-size: 20px;
+	height: 30px;
+	line-height: 25px;
+	width: 250px;
+}
+.login input[type=submit],
+.register input[type=submit],
+.login .buttons span.btn {
+	background-color: #C9DBFF;
+	border: 3px outset #cccccc;
+	border-radius: 20px;
+	color: #1A5F7C;
+	cursor: pointer;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: 16px;
+	line-height: 24px;
+	padding: 2px 6px 3px;
+}
+.login input[type=submit],
+.register input[type=submit] {
+	height: 40px;
+	width: 100px;
+}
+.login .buttons span.btn {
+	display: inline-block;
+	height: 29px;
+	text-align: center;
+	width: 82px;
+}
+.login .buttons span.btn a {
+	color: #1A5F7C;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	text-decoration: none;
+}
+.login .buttons span.btn:hover,
+.login input[type=submit]:hover,
+.register input[type=submit]:hover {
+	background-color: #1A5F7C;
+	border: 3px outset #C9DBFF;
+	color: #fff;
+	cursor: pointer;
+}
+.login .buttons span.btn:hover a,
+.register .buttons span.btn:hover a {
+	color: #fff;
+}
+
+#home-page {
+	max-width: 840px;
+	margin: 10px auto;
+}
